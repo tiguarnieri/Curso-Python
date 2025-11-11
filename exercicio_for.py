@@ -1,3 +1,5 @@
+import os
+
 # Jogo de adivinhação de palavra (estilo forca simples)
 
 # Palavra secreta que o jogador deve descobrir
@@ -15,6 +17,7 @@ pal_descoberta = ['*' for letras in pal_secreta]
 
 # O jogo continua enquanto o número de letras certas for menor que o total da palavra
 while len(letras_certas) < len(pal_secreta):
+
     # Solicita uma letra do jogador e converte para minúscula
     letra = input('Digite uma letra: ').lower()
 
@@ -25,6 +28,9 @@ while len(letras_certas) < len(pal_secreta):
 
     # Verifica se a letra está na palavra secreta
     if letra in pal_secreta:
+        if letra in letras_certas:
+            print(f'Você já acertou a letra {letra.upper()}. Tente outra.')
+            continue
         # Percorre cada posição da palavra
         for letras in range(len(pal_secreta)):
             # Se a letra digitada for igual à letra da posição atual
@@ -44,6 +50,7 @@ while len(letras_certas) < len(pal_secreta):
      # Mostra a palavra parcialmente descoberta
     print(f"A palavra é {' '.join(pal_descoberta).upper()}")
 
+os.system('cls') # Limpa a tela para uma melhor visualização
 
 # Quando todas as letras forem descobertas, o jogo termina
 print(f'\nParabéns, você descobriu a palavra secreta: {pal_secreta.upper()}')
