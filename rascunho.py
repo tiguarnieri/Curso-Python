@@ -1,7 +1,13 @@
-salas = [
-    ['Maria', 'Helena', ],
-    ['Elaine', ],
-    ['Luiz', 'João', 'Eduarda', (0,10,20,30,40)]
-]
+x =1
 
-print(salas[2][3][2])
+def escopo():
+    x=10
+
+    def escopo_interno():
+        y=2
+        print (x, y)
+    
+    escopo_interno()
+
+escopo()
+print(x)
